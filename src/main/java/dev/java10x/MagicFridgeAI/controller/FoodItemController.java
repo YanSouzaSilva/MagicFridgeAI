@@ -6,6 +6,12 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/food")
 public class FoodItemController {
 
+    //Boas vindas
+    @GetMapping("/boasvindas")
+    public String boasVindas(){
+        return "Boas vindas, aplicação rodando.";
+    }
+
     //GET
     @GetMapping("/listar")
     public String listarFood(){
