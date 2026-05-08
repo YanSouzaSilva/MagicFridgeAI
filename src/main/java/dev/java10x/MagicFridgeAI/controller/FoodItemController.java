@@ -20,7 +20,7 @@ public class FoodItemController {
 
     @GetMapping("/listar/{id}")
     public String listarFoodPorID(@PathVariable Long id){
-        return "Listagem dos alimentos por id";
+        return "Listagem do alimento de id: " + id;
     }
 
     //POST
@@ -32,12 +32,12 @@ public class FoodItemController {
     //UPDATE
     @PatchMapping("/alterar/{id}")
     public String alterarFood(@PathVariable Long id){
-        return "Alterar alimento";
+        return "Alterar o alimento de id: " + id;
     }
 
     //DELETE
     @DeleteMapping("/deletar/{id}")
     public String deletarFood(@PathVariable Long id){
-        return "Deletar alimento";
+        return "Deletar o alimentode id: " + id;
     }
 }
