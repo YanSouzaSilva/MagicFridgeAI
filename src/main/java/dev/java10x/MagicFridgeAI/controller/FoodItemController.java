@@ -1,26 +1,29 @@
 package dev.java10x.MagicFridgeAI.controller;
 import dev.java10x.MagicFridgeAI.model.FoodItem;
+import dev.java10x.MagicFridgeAI.service.FoodItemService;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/food")
 public class FoodItemController {
 
-    //Boas vindas
-    @GetMapping("/boasvindas")
-    public String boasVindas(){
-        return "Boas vindas, aplicação rodando.";
+    private final FoodItemService service;
+
+    public FoodItemController(FoodItemService service) {
+        this.service = service;
     }
 
     //GET
     @GetMapping("/listar")
-    public String listarFood(){
-        return "Listagem dos alimentos.";
+    public List<FoodItem> listarFood(){
+        return service.listarFood();
     }
 
     @GetMapping("/listar/{id}")
-    public String listarFoodPorID(@PathVariable Long id){
-        return "Listagem do alimento de id: " + id;
+    public FoodItem listarFoodPorID(@PathVariable Long id){
+        return service.listarFoodPorID(id);
     }
 
     //POST

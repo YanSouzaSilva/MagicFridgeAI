@@ -3,7 +3,6 @@ import dev.java10x.MagicFridgeAI.model.FoodItem;
 import dev.java10x.MagicFridgeAI.repository.FoodItemRepository;
 import org.springframework.stereotype.Service;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class FoodItemService {
@@ -21,8 +20,7 @@ public class FoodItemService {
 
     //Listar alimento pelo id
     public FoodItem listarFoodPorID(Long id){
-        Optional<FoodItem> idFood = repository.findById(id);
-        return idFood.orElse(null);
+        return repository.findById(id).orElse(null);
     }
 
 }
