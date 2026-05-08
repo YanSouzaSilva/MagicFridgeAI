@@ -36,7 +36,7 @@ public class FoodItemController {
     }
 
     //DELETE
-    @DeleteMapping("/alterar/{id}")
+    @DeleteMapping("/deletar/{id}")
     public String deletarFood(@PathVariable Long id){
         return "Deletar alimento";
     }
