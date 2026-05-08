@@ -2,8 +2,8 @@ package dev.java10x.MagicFridgeAI.service;
 import dev.java10x.MagicFridgeAI.model.FoodItem;
 import dev.java10x.MagicFridgeAI.repository.FoodItemRepository;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class FoodItemService {
@@ -14,11 +14,15 @@ public class FoodItemService {
         this.repository = repository;
     }
 
-    private FoodItem salvar(FoodItem food){
-        return repository.save(food);
-    }
-
-    private List<FoodItem> listar(){
+    //Listar todos os alimentos
+    public List<FoodItem> listarFood(){
         return repository.findAll();
     }
+
+    //Listar alimento pelo id
+    public FoodItem listarFoodPorID(Long id){
+        Optional<FoodItem> idFood = repository.findById(id);
+        return idFood.orElse(null);
+    }
+
 }
