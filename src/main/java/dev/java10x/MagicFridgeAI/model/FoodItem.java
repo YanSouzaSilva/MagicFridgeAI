@@ -1,10 +1,8 @@
 package dev.java10x.MagicFridgeAI.model;
+import dev.java10x.MagicFridgeAI.enums.Categoria;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
-
 import java.time.LocalDateTime;
 
 @Entity
@@ -19,50 +17,10 @@ public class FoodItem {
 
     private String nome;
 
-    //Criar ENUM
-    private String categoria;
+    @Enumerated(EnumType.STRING)
+    private Categoria categoria;
 
     private Integer quantidade;
 
     private LocalDateTime validade;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public String getCategoria() {
-        return categoria;
-    }
-
-    public void setCategoria(String categoria) {
-        this.categoria = categoria;
-    }
-
-    public Integer getQuantidade() {
-        return quantidade;
-    }
-
-    public void setQuantidade(Integer quantidade) {
-        this.quantidade = quantidade;
-    }
-
-    public LocalDateTime getValidade() {
-        return validade;
-    }
-
-    public void setValidade(LocalDateTime validade) {
-        this.validade = validade;
-    }
 }
