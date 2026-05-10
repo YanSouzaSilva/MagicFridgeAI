@@ -28,4 +28,19 @@ public class FoodItemService {
         return repository.save(food);
     }
 
+    //Alterar alimento
+    public FoodItem alterarFood(Long id, FoodItem food){
+        if(repository.existsById(id)){
+            food.setId(id);
+            return repository.save(food);
+        }
+
+        return null;
+    }
+
+    //Deletar Alimento
+    public void deletarFood(Long id){
+        repository.deleteById(id);
+    }
+
 }

@@ -34,13 +34,13 @@ public class FoodItemController {
 
     //UPDATE
     @PatchMapping("/alterar/{id}")
-    public String alterarFood(@PathVariable Long id){
-        return "Alterar o alimento de id: " + id;
+    public FoodItem alterarFood(@PathVariable Long id, @RequestBody FoodItem food){
+        return service.alterarFood(id, food);
     }
 
     //DELETE
     @DeleteMapping("/deletar/{id}")
-    public String deletarFood(@PathVariable Long id){
-        return "Deletar o alimentode id: " + id;
+    public void deletarFood(@PathVariable Long id){
+        service.deletarFood(id);
     }
 }
