@@ -15,6 +15,12 @@ public class FoodItemController {
         this.service = service;
     }
 
+    //POST
+    @PostMapping("/criar")
+    public FoodItem criarFood(@RequestBody FoodItem food){
+        return service.criarFood(food);
+    }
+
     //GET
     @GetMapping("/listar")
     public List<FoodItem> listarFood(){
@@ -24,12 +30,6 @@ public class FoodItemController {
     @GetMapping("/listar/{id}")
     public FoodItem listarFoodPorID(@PathVariable Long id){
         return service.listarFoodPorID(id);
-    }
-
-    //POST
-    @PostMapping("/salvar")
-    public String salvarFood(@RequestBody FoodItem food){
-        return "Salvar alimento";
     }
 
     //UPDATE

@@ -23,4 +23,9 @@ public class FoodItemService {
         return repository.findById(id).orElse(null);
     }
 
+    //Criar alimento
+    public FoodItem criarFood(FoodItem food){
+        return repository.save(food);
+    }
+
 }
