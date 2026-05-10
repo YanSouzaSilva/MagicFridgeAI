@@ -30,9 +30,28 @@ public class FoodItemService {
 
     //Alterar alimento
     public FoodItem alterarFood(Long id, FoodItem food){
-        if(repository.existsById(id)){
-            food.setId(id);
-            return repository.save(food);
+
+        FoodItem foodExistente = repository.findById(id).orElse(null);
+
+        if(foodExistente != null){
+
+            if(food.getNome() != null){
+                foodExistente.setNome(food.getNome());
+            }
+
+            if(food.getCategoria() != null){
+                foodExistente.setCategoria(food.getCategoria());
+            }
+
+            if(food.getQuantidade() != null){
+                foodExistente.setQuantidade(food.getQuantidade());
+            }
+
+            if(food.getValidade() != null){
+                foodExistente.setValidade(food.getValidade());
+            }
+
+            return repository.save(foodExistente);
         }
 
         return null;
