@@ -1,4 +1,6 @@
 package dev.java10x.MagicFridgeAI.service;
+import dev.java10x.MagicFridgeAI.dto.FoodItemDTO;
+import dev.java10x.MagicFridgeAI.mapper.FoodItemMapper;
 import dev.java10x.MagicFridgeAI.model.FoodItem;
 import dev.java10x.MagicFridgeAI.repository.FoodItemRepository;
 import org.springframework.stereotype.Service;
@@ -14,8 +16,11 @@ public class FoodItemService {
     }
 
     //Listar todos os alimentos
-    public List<FoodItem> listarFood(){
-        return repository.findAll();
+    public List<FoodItemDTO> listarFood(){
+        List<FoodItem> foodList = repository.findAll();
+        return foodList.stream()
+                .map(FoodItemMapper::toDTO)
+                .toList();
     }
 
     //Listar alimento pelo id

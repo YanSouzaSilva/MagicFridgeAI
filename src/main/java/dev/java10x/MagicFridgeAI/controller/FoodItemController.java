@@ -1,4 +1,5 @@
 package dev.java10x.MagicFridgeAI.controller;
+import dev.java10x.MagicFridgeAI.dto.FoodItemDTO;
 import dev.java10x.MagicFridgeAI.model.FoodItem;
 import dev.java10x.MagicFridgeAI.service.FoodItemService;
 import org.springframework.web.bind.annotation.*;
@@ -23,7 +24,7 @@ public class FoodItemController {
 
     //GET
     @GetMapping("/listar")
-    public List<FoodItem> listarFood(){
+    public List<FoodItemDTO> listarFood(){
         return service.listarFood();
     }
 
