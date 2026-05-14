@@ -29,7 +29,7 @@ public class FoodItemController {
     }
 
     @GetMapping("/listar/{id}")
-    public FoodItem listarFoodPorID(@PathVariable Long id){
+    public FoodItemDTO listarFoodPorID(@PathVariable Long id){
         return service.listarFoodPorID(id);
     }
 

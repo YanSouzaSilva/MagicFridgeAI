@@ -17,6 +17,7 @@ public class FoodItemService {
 
     //Listar todos os alimentos
     public List<FoodItemDTO> listarFood(){
+
         List<FoodItem> foodList = repository.findAll();
         return foodList.stream()
                 .map(FoodItemMapper::toDTO)
@@ -24,8 +25,15 @@ public class FoodItemService {
     }
 
     //Listar alimento pelo id
-    public FoodItem listarFoodPorID(Long id){
-        return repository.findById(id).orElse(null);
+    public FoodItemDTO listarFoodPorID(Long id){
+
+        FoodItem food = repository.findById(id).orElse(null);
+
+        if(food != null){
+            return FoodItemMapper.toDTO(food);
+        }
+
+        return null;
     }
 
     //Criar alimento
