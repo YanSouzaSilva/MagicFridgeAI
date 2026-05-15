@@ -37,8 +37,11 @@ public class FoodItemService {
     }
 
     //Criar alimento
-    public FoodItem criarFood(FoodItem food){
-        return repository.save(food);
+    public FoodItemDTO criarFood(FoodItemDTO food){
+
+        repository.save(FoodItemMapper.toEntity(food));
+
+        return food;
     }
 
     //Alterar alimento

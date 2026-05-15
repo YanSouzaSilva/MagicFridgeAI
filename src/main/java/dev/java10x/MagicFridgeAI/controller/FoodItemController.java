@@ -18,7 +18,7 @@ public class FoodItemController {
 
     //POST
     @PostMapping("/criar")
-    public FoodItem criarFood(@RequestBody FoodItem food){
+    public FoodItemDTO criarFood(@RequestBody FoodItemDTO food){
         return service.criarFood(food);
     }
 
