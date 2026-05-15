@@ -39,13 +39,13 @@ public class FoodItemService {
     //Criar alimento
     public FoodItemDTO criarFood(FoodItemDTO food){
 
-        repository.save(FoodItemMapper.toEntity(food));
+        FoodItem savedFood = repository.save(FoodItemMapper.toEntity(food));
 
-        return food;
+        return FoodItemMapper.toDTO(savedFood);
     }
 
     //Alterar alimento
-    public FoodItem alterarFood(Long id, FoodItem food){
+    public FoodItemDTO alterarFood(Long id, FoodItemDTO food){
 
         FoodItem foodExistente = repository.findById(id).orElse(null);
 
@@ -67,7 +67,9 @@ public class FoodItemService {
                 foodExistente.setValidade(food.getValidade());
             }
 
-            return repository.save(foodExistente);
+            FoodItem foodAtualizado = repository.save(foodExistente);
+
+            return FoodItemMapper.toDTO(foodAtualizado);
         }
 
         return null;

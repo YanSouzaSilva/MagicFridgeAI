@@ -35,7 +35,7 @@ public class FoodItemController {
 
     //UPDATE
     @PatchMapping("/alterar/{id}")
-    public FoodItem alterarFood(@PathVariable Long id, @RequestBody FoodItem food){
+    public FoodItemDTO alterarFood(@PathVariable Long id, @RequestBody FoodItemDTO food){
         return service.alterarFood(id, food);
     }
 
